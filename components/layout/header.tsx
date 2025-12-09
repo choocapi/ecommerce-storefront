@@ -52,7 +52,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white shadow-sm">
       {/* Top Bar */}
       <div className="bg-white">
-        <div className="container mx-auto px-2 md:px-3 lg:px-4">
+        <div className="container mx-auto px-4 lg:px-16">
           <div className="flex items-center justify-between h-10">
             <div className="flex items-center gap-4">
               {/* Phone */}
@@ -118,7 +118,7 @@ export default function Header() {
 
       {/* Main Navigation */}
       <div className="bg-white shadow-sm">
-        <div className="container mx-auto px-2 md:px-3 lg:px-4 py-1">
+        <div className="container mx-auto px-4 lg:px-16 py-1">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2 shrink-0">
               {/* Logo */}

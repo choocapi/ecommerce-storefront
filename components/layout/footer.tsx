@@ -121,9 +121,11 @@ export default function Footer({
 
   return (
     <footer className="mt-10 w-full">
-      <WavyDivider />
+      <div className="w-full">
+        <WavyDivider />
+      </div>
 
-      <div className="container mx-auto pt-6 md:pt-14 pb-6 px-2 md:px-3 lg:px-4">
+      <div className="container mx-auto pt-6 md:pt-14 pb-6 px-4 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Left Section - Branding & Social */}
           <div className="space-y-4">
