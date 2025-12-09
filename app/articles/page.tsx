@@ -124,7 +124,7 @@ export default function ArticlesPage() {
               <TabsTrigger
                 key={category.slug}
                 value={category.slug}
-                className="rounded-lg px-6 py-2 text-base font-semibold text-gray-900 data-[state=active]:bg-primary data-[state=active]:text-gray-900 data-[state=inactive]:bg-transparent data-[state=inactive]:text-gray-900 hover:bg-gray-200/50 transition-colors"
+                className="rounded-lg px-6 py-2 text-base font-semibold text-white data-[state=active]:bg-primary data-[state=active]:text-gray-900 data-[state=inactive]:bg-transparent data-[state=inactive]:text-gray-900 hover:bg-gray-200/50 transition-colors"
               >
                 {category.name}
               </TabsTrigger>
