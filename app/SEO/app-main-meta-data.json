@@ -1,0 +1,110 @@
+{
+  "appName": "ACB Computer",
+  "appType": "Shop máy tính và phụ kiện máy tính",
+  "tagline": "Shop máy tính và phụ kiện máy tính",
+  "title": "ACB Computer",
+  "description": "ACB Computer là cửa hàng bán máy tính và phụ kiện máy tính, chúng tôi cung cấp các sản phẩm chất lượng cao với giá cả phải chăng.",
+  "locale": "vi_VN",
+  "language": "vi-VN",
+  "domain": "http://acbcomputer.store",
+  "canonicalPath": "/",
+  "applicationCategory": "WebApplication",
+  "audience": "Khách hàng phổ thông, Game thủ, Người dùng máy tính",
+  "keywords": [
+    "máy tính",
+    "phụ kiện máy tính",
+    "bán máy tính",
+    "bán phụ kiện máy tính",
+    "cửa hàng máy tính",
+    "cửa hàng phụ kiện máy tính"
+  ],
+  "features": [
+    "Quản lý sản phẩm",
+    "Quản lý đơn hàng",
+    "Quản lý khách hàng",
+    "Quản lý đánh giá",
+    "Quản lý tin tức"
+  ],
+
+  "languages": {
+    "supported": ["vi", "en"],
+    "default": "vi",
+    "locales": {
+      "vi": {
+        "code": "vi",
+        "name": "Vietnamese",
+        "nativeName": "Tiếng Việt",
+        "locale": "vi_VN",
+        "direction": "ltr"
+      },
+      "en": {
+        "code": "en",
+        "name": "English",
+        "nativeName": "English",
+        "locale": "en_US",
+        "direction": "ltr"
+      }
+    }
+  },
+
+  "organization": {
+    "name": "ACB Computer",
+    "legalName": "ACB Computer",
+    "url": "http://acbcomputer.store",
+    "logo": "/logo.png",
+    "description": "ACB Computer là cửa hàng bán máy tính và phụ kiện máy tính, chúng tôi cung cấp các sản phẩm chất lượng cao với giá cả phải chăng.",
+    "foundingDate": "2025-11-28",
+    "email": "contact@acbcomputer.store",
+    "phone": "+84352343012",
+    "address": {
+      "street": "123",
+      "city": "Hồ Chí Minh",
+      "region": "Hồ Chí Minh",
+      "postalCode": "70000",
+      "country": "Việt Nam",
+      "countryCode": "VN"
+    }
+  },
+
+  "contact": {
+    "supportEmail": "support@acbcomputer.store",
+    "salesEmail": "sales@acbcomputer.store",
+    "phoneNumber": "+84352343012"
+  },
+
+  "social": {
+    "facebook": "https://facebook.com/acbcomputer",
+    "twitter": "@acbcomputer",
+    "linkedin": "https://linkedin.com/company/acbcomputer",
+    "instagram": "https://instagram.com/acbcomputer",
+    "youtube": "https://youtube.com/@acbcomputer",
+    "github": "https://github.com/acbcomputer"
+  },
+
+  "images": {
+    "og": "/og-image.png",
+    "logo": "/logo.png",
+    "ogWidth": 1200,
+    "ogHeight": 630
+  },
+
+  "icons": {
+    "favicon": "/favicon.ico",
+    "svg": "/icon.svg",
+    "appleTouchIcon": "/apple-touch-icon.png"
+  },
+
+  "theme": {
+    "dark": "#000000",
+    "light": "#ffffff"
+  },
+
+  "pricing": {
+    "model": "freemium",
+    "currency": "VND",
+    "minPrice": "0",
+    "maxPrice": "999999999"
+  },
+
+  "manifest": "/manifest.json"
+}
