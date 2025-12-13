@@ -24,7 +24,7 @@ export const useAuthStore = create<AuthState>()(
 
           await authService.signUp(email, password, firstName, lastName);
 
-          toast.success("Đăng ký thành công! Bạn sẽ được chuyển sang trang đăng nhập.");
+          toast.success("Đăng ký thành công! Vui lòng kiểm tra email để xác thực tài khoản.");
         } catch (error) {
           console.error(error);
           toast.error("Đăng ký không thành công");

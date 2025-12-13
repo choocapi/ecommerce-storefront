@@ -10,10 +10,12 @@ import {
 } from "@/components/ui/select";
 import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
 import { productReviewQueries } from "@/services/productReviewService";
+import { useAuthStore } from "@/stores/useAuthStore";
 import { IProduct } from "@/types/products";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Pencil, StarIcon } from "lucide-react";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 import ReviewCard from "./review-card";
 import WriteReviewModal from "./write-review-modal";
 
@@ -30,6 +32,7 @@ export default function ProductReviews({ product, className }: ProductReviewsPro
   const [isWriteModalOpen, setIsWriteModalOpen] = useState(false);
   const [displayedCount, setDisplayedCount] = useState(REVIEWS_PER_PAGE);
   const [sortBy, setSortBy] = useState<ReviewSortOption>("newest");
+  const { user } = useAuthStore();
 
   const { data: reviews = [], isLoading } = useQuery(productReviewQueries.byProduct(product.id));
 
@@ -82,6 +85,14 @@ export default function ProductReviews({ product, className }: ProductReviewsPro
 
   const handleLoadMore = () => {
     setDisplayedCount((prev) => prev + REVIEWS_PER_PAGE);
+  };
+
+  const handleWriteReviewClick = () => {
+    if (!user) {
+      toast.warning("Vui lòng đăng nhập để viết đánh giá");
+      return;
+    }
+    setIsWriteModalOpen(true);
   };
 
   return (
@@ -141,7 +152,7 @@ export default function ProductReviews({ product, className }: ProductReviewsPro
             {/* Action Buttons */}
             <div className="flex flex-col gap-3">
               <Button
-                onClick={() => setIsWriteModalOpen(true)}
+                onClick={handleWriteReviewClick}
                 className="rounded-full bg-gray-900 text-white hover:bg-gray-800 font-semibold px-6"
               >
                 <Pencil className="size-4" />

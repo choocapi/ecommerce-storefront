@@ -16,7 +16,6 @@ export default function CheckoutResultPage() {
   const [orderId, setOrderId] = useState<string>("");
 
   useEffect(() => {
-    // Get result parameters from backend redirect
     const resultStatus = searchParams.get("status");
     const orderIdParam = searchParams.get("orderId");
 
@@ -28,14 +27,13 @@ export default function CheckoutResultPage() {
       setStatus("success");
       setMessage("Thanh toán thành công! Đơn hàng của bạn đã được xác nhận.");
 
-      // Redirect to orders page after 2 seconds
       setTimeout(() => {
         if (orderIdParam) {
           router.push(`/profile/orders/${orderIdParam}`);
         } else {
           router.push("/profile/orders");
         }
-      }, 2000);
+      }, 5000);
     } else if (resultStatus === "failed") {
       setStatus("failed");
       setMessage(

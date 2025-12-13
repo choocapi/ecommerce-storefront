@@ -58,7 +58,6 @@ export default function RegisterModal({ isOpen, onClose, onOpenLogin }: Register
       await register(values.email, values.password, values.firstName, values.lastName);
       form.reset();
       onClose();
-      // Auto open login modal after successful registration
       setTimeout(() => {
         handleOpenLogin();
       }, 500);
