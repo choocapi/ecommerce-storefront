@@ -83,11 +83,7 @@ export default function ResetPasswordPage() {
               <p className="text-sm text-gray-600 mb-6">
                 Mật khẩu của bạn đã được cập nhật. Bạn có thể đăng nhập với mật khẩu mới.
               </p>
-              <Button
-                size="lg"
-                asChild
-                className="rounded-full text-gray-900 text-base font-semibold"
-              >
+              <Button size="lg" asChild className="rounded-full text-white text-base font-semibold">
                 <Link href="/">Về trang chủ</Link>
               </Button>
             </div>
@@ -108,11 +104,7 @@ export default function ResetPasswordPage() {
               </div>
               <h1 className="text-2xl font-bold text-gray-900 mb-2">Đặt lại mật khẩu thất bại</h1>
               <p className="text-sm text-gray-600 mb-6">{errorMessage}</p>
-              <Button
-                size="lg"
-                asChild
-                className="rounded-full text-gray-900 text-base font-semibold"
-              >
+              <Button size="lg" asChild className="rounded-full text-white text-base font-semibold">
                 <Link href="/">Về trang chủ</Link>
               </Button>
             </div>
@@ -208,7 +200,7 @@ export default function ResetPasswordPage() {
               <Button
                 size="lg"
                 type="submit"
-                className="w-full rounded-full text-gray-900 text-base font-semibold"
+                className="w-full rounded-full text-white text-base font-semibold"
                 disabled={status === "submitting"}
               >
                 {status === "submitting" ? "Đang xử lý..." : "Đặt lại mật khẩu"}

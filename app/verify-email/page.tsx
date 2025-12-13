@@ -67,11 +67,7 @@ export default function VerifyEmailPage() {
               <p className="text-sm text-gray-600 mb-6">
                 Email của bạn đã được xác thực. Bạn có thể đăng nhập ngay bây giờ.
               </p>
-              <Button
-                size="lg"
-                asChild
-                className="rounded-full text-gray-900 text-base font-semibold"
-              >
+              <Button size="lg" asChild className="rounded-full text-white text-base font-semibold">
                 <Link href="/">Về trang chủ</Link>
               </Button>
             </div>
@@ -84,11 +80,7 @@ export default function VerifyEmailPage() {
               </div>
               <h1 className="text-2xl font-bold text-gray-900 mb-2">Xác thực email thất bại</h1>
               <p className="text-sm text-gray-600 mb-6">{errorMessage}</p>
-              <Button
-                size="lg"
-                asChild
-                className="rounded-full text-gray-900 text-base font-semibold"
-              >
+              <Button size="lg" asChild className="rounded-full text-white text-base font-semibold">
                 <Link href="/">Về trang chủ</Link>
               </Button>
             </div>

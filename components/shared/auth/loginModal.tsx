@@ -121,8 +121,8 @@ export default function LoginModal({
               className="w-full border-gray-200 text-gray-900 rounded-full h-10 hover:bg-gray-50 font-medium text-sm flex items-center justify-center gap-3"
               onClick={() => {
                 // Redirect to Google OAuth2 login
-                // Spring Security OAuth2 Client uses /login/oauth2/authorization/{registrationId}
-                window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/login/oauth2/authorization/google`;
+                // Spring Security default: /oauth2/authorization/{registrationId}
+                window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/oauth2/authorization/google`;
               }}
             >
               <Image
