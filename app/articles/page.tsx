@@ -31,15 +31,18 @@ export default function ArticlesPage() {
   const isLatest = selectedCategory === "moi-nhat";
   const { data, isLoading, isFetching } = useQuery(
     isLatest
-      ? articleQueries.list()
+      ? articleQueries.list({
+          page: currentPage,
+          size: ARTICLES_PER_PAGE + 1,
+        })
       : articleQueries.byCategory({
           category: selectedCategory,
           page: currentPage,
-          size: ARTICLES_PER_PAGE + 1, // +1 để lấy featured article
+          size: ARTICLES_PER_PAGE + 1,
         }),
   );
 
-  // Fetch products for "Có thể bạn cũng thích"
+  // Fetch products
   const { data: productsData, isLoading: isLoadingProducts } = useQuery(productQueries.list());
 
   // Reset state when category changes
@@ -59,36 +62,25 @@ export default function ArticlesPage() {
       return;
     }
 
-    if (isLatest) {
-      // "Mới nhất": no pagination, show all articles
-      const newFeatured = data.content[0];
-      const newArticles = data.content.slice(1);
+    const newFeatured = data.content[0];
+    const newArticles = data.content.slice(1);
+
+    if (currentPage === 0) {
+      // First page: replace all
       setFeaturedArticle(newFeatured);
       setAllArticles(newArticles);
     } else {
-      // Other categories: with pagination
-      const newFeatured = data.content[0];
-      const newArticles = data.content.slice(1);
-
-      if (currentPage === 0) {
-        // First page: replace all
-        setFeaturedArticle(newFeatured);
-        setAllArticles(newArticles);
-      } else {
-        // Load more: append to existing articles
-        setAllArticles((prev) => [...prev, ...newArticles]);
-      }
+      // Load more: append to existing articles
+      setAllArticles((prev) => [...prev, ...newArticles]);
     }
-  }, [data, currentPage, isLatest]);
+  }, [data, currentPage]);
 
   // Get first 5 products
   const products = useMemo(() => {
     return (productsData?.content || []).slice(0, 5);
   }, [productsData]);
 
-  const hasMore = isLatest
-    ? false // "Mới nhất" không có load more
-    : data
+  const hasMore = data
     ? data.content.length === ARTICLES_PER_PAGE + 1 && currentPage < data.totalPages - 1
     : false;
 
@@ -124,7 +116,7 @@ export default function ArticlesPage() {
               <TabsTrigger
                 key={category.slug}
                 value={category.slug}
-                className="rounded-lg px-6 py-2 text-base font-semibold text-white data-[state=active]:bg-primary data-[state=active]:text-gray-900 data-[state=inactive]:bg-transparent data-[state=inactive]:text-gray-900 hover:bg-gray-200/50 transition-colors"
+                className="rounded-lg px-6 py-2 text-base font-semibold data-[state=active]:bg-primary data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-gray-900 hover:bg-gray-200/50 transition-colors"
               >
                 {category.name}
               </TabsTrigger>
@@ -206,7 +198,7 @@ export default function ArticlesPage() {
                         <HProductCard
                           key={product.id}
                           product={product}
-                          showOriginalPrice={true}
+                          showOriginalPrice={false}
                           className="h-24 w-full"
                         />
                       ))}

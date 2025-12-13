@@ -89,9 +89,9 @@ export default function SearchDropdown({
           <p className="mt-2 text-sm">Đang tìm kiếm...</p>
         </div>
       ) : searchResults.length > 0 ? (
-        <div className="p-2 flex flex-col gap-2">
-          {searchResults.map((product) => (
-            <HProductCard key={product.id} product={product} />
+        <div className="p-1 flex flex-col gap-2">
+          {searchResults.slice(0, 4).map((product) => (
+            <HProductCard key={product.id} product={product} className="p-1" />
           ))}
         </div>
       ) : debouncedQuery.trim() ? (

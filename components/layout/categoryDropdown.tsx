@@ -82,13 +82,13 @@ export default function CategoryDropdown({ isOpen, onClose, triggerRef }: Catego
   // Fetch products for all categories in the group
   const productsQueries = useQueries({
     queries: selectedGroupSlugs.map((slug) => ({
-      ...productQueries.byCategory({ slug, page: 0, size: 20 }), // Fetch more to have enough products
+      ...productQueries.byCategory({ slug, page: 0, size: 4 }), // Fetch more to have enough products
       enabled: isOpen && !!slug,
     })),
   });
 
-  // Merge and deduplicate products from all categories
-  const featuredProducts = useMemo(() => {
+  // Merge and deduplicate products from all categories in the group
+  const products = useMemo(() => {
     const allProducts: IProduct[] = [];
     const productIds = new Set<number>();
 
@@ -103,8 +103,7 @@ export default function CategoryDropdown({ isOpen, onClose, triggerRef }: Catego
       }
     });
 
-    // Filter featured products and limit to 4
-    return allProducts.filter((p) => p.isFeatured === true).slice(0, 4);
+    return allProducts;
   }, [productsQueries]);
 
   const isLoadingProducts = productsQueries.some((query) => query.isLoading);
@@ -221,16 +220,16 @@ export default function CategoryDropdown({ isOpen, onClose, triggerRef }: Catego
           )}
         </div>
 
-        {/* Right Column - Featured Products */}
+        {/* Right Column - Products */}
         <div className="w-100 overflow-y-auto max-h-[500px] p-6">
-          <h3 className="text-gray-900 font-bold text-xl mb-4">Sản phẩm nổi bật</h3>
+          <h3 className="text-gray-900 font-bold text-xl mb-4">Sản phẩm</h3>
           {isLoadingProducts ? (
             <div className="flex justify-center h-full">
               <Loader className="inline-block" />
             </div>
-          ) : (
+          ) : products.length > 0 ? (
             <div className="space-y-4">
-              {featuredProducts.map((product) => (
+              {products.map((product) => (
                 <HProductCard
                   key={product.id}
                   showOriginalPrice={false}
@@ -239,6 +238,8 @@ export default function CategoryDropdown({ isOpen, onClose, triggerRef }: Catego
                 />
               ))}
             </div>
+          ) : (
+            <div className="text-center text-gray-500 text-sm py-8">Không có sản phẩm nào</div>
           )}
         </div>
       </div>

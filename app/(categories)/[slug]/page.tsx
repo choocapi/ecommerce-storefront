@@ -174,7 +174,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     <div className="container mx-auto px-2 md:px-3 lg:px-4 py-8">
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Sidebar Filters */}
-        <div className="lg:w-72 shrink-0">
+        <div className="lg:w-64 shrink-0">
           <div className="bg-white rounded-xl border border-gray-200 p-4 sticky top-24 max-h-[80vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-gray-900 font-bold text-lg">Bộ lọc</h2>
