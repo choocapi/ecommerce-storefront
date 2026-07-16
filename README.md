@@ -26,8 +26,8 @@ Customer-facing ecommerce website for ACB Computer, a PC & hardware store.
 ```bash
 git clone https://github.com/choocapi/ecommerce-storefront.git
 cd ecommerce-storefront
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 ## Project Navigation
